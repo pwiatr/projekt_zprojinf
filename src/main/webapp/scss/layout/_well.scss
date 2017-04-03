@@ -1,0 +1,7 @@
+.well {
+    border: none;
+
+    background:none;
+
+    @include remove-box-shadow();
+}

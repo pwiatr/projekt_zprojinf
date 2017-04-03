@@ -1,0 +1,7 @@
+@mixin remove-box-shadow() {
+    $setting: none;
+    box-shadow: $setting;
+    -moz-box-shadow: $setting;
+    -webkit-box-shadow: $setting;
+    -o-box-shadow: $setting;
+}

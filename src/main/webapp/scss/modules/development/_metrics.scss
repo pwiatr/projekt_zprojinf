@@ -1,0 +1,17 @@
+/* ==========================================================================
+Metrics and Health styles
+========================================================================== */
+#threadDump .popover, #healthCheck .popover {
+    top: inherit;
+    display: block;
+    font-size: 10px;
+    max-width: 1024px;
+}
+
+#healthCheck .popover {
+    margin-left: -50px;
+}
+
+.health-details {
+    min-width: 400px;
+}

@@ -1,0 +1,37 @@
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+.datetime-picker-dropdown > li.date-picker-menu div > table .btn-default,
+.uib-datepicker-popup  > li > div.uib-datepicker > table .btn-default {
+    border: 0;
+}
+
+.datetime-picker-dropdown > li.date-picker-menu div > table:focus,
+.uib-datepicker-popup  > li > div.uib-datepicker > table:focus {
+    outline: none;
+}
+
+
+/* jhipster-needle-scss-add-main JHipster will add new css style */
+
+/* ==========================================================================
+make sure browsers use the pointer cursor for anchors, even with no href
+========================================================================== */
+a:hover {
+    cursor: pointer;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+/* ==========================================================================
+Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
+========================================================================== */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
