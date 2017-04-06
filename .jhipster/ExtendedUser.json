@@ -1,0 +1,19 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "extendedUser"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170406204313",
+    "dto": "mapstruct",
+    "service": "no",
+    "entityTableName": "extended_user",
+    "pagination": "no"
+}
