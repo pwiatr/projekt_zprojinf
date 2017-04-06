@@ -3,6 +3,16 @@
 }
 
 .navbar-default{
+    padding: 10px 0;
+
     border: #000;
+
     background-color: #7cdac2;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+    }
 }
