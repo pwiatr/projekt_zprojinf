@@ -1,0 +1,27 @@
+.authorization_modal-header {
+    padding: 10px 10px 0 0;
+
+    border-bottom: none;
+
+    background-color: $base-color-green;
+}
+
+.authorization_modal-header:before, .authorization_modal-header:after {
+    content: " ";
+    display: table;
+}
+
+.authorization_modal-header:after {
+    clear: both;
+}
+
+.authorization_modal-header .close {
+    margin-top: -2px;
+}
+
+.authorization_modal-title {
+    margin: 0;
+    line-height: 1.42857;
+
+    color: #fff;
+}

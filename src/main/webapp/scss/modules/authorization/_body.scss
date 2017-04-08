@@ -1,0 +1,190 @@
+.authorization_modal {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+
+    color: #fff;
+}
+
+.authorization_modal-body {
+    position: relative;
+
+    background-color: $base-color-green;
+    background-clip: padding-box;
+
+    border: none;
+    border-radius: 0px;
+
+    //-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    //box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    outline: 0;
+
+    position: relative;
+    padding: 15px 0 20px 0;
+
+    .title {
+
+    }
+}
+
+.authorization_modal.fade .authorization_modal-dialog {
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    -o-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+}
+
+.authorization_modal.in .authorization_modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.authorization_modal-open .authorization_modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.authorization_modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+
+.authorization_modal-content {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    outline: 0;
+}
+
+.authorization_modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}
+
+.authorization_modal-backdrop.fade {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.authorization_modal-backdrop.in {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #e28393;
+    /* border-color: #2e6da4; */
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.btn-authorization:hover {
+    color: #fff;
+    background-color: #df7587;
+    border-bottom: 2px solid #b96977;
+    border-top: 1px solid #f395a5;
+    border-left: 1px solid #f395a5;
+    border-right: 2px solid #b96977;
+}
+
+.btn-authorization {
+    display: inline-block;
+    margin-bottom: 0;
+    float: right;
+
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border-bottom: 2px solid #b96977;
+    border-top: 1px solid #f395a5;
+    border-left: 1px solid #f395a5;
+    border-right: 2px solid #b96977;
+    white-space: nowrap;
+    padding: 7px 36px;
+    font-size: 20px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 150%;
+    color: #fff;
+    margin: 10px;
+}
+
+.form-control-authorization {
+    @include placeholder {
+        color: #fff;
+    }
+
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: rgb(216, 139, 152);
+    background-image: none;
+
+    color: #fff;
+    text-: #eee;
+    border: none;
+    border-radius: 0px;
+    /* border-radius: 4px; */
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.authorization_modal-content {
+    position: relative;
+
+    background-color: #7cdac2;
+    background-clip: padding-box;
+
+    border: none;
+    border-radius: 0px;
+
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    outline: 0;
+}

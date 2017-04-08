@@ -1,0 +1,17 @@
+.authorization_modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5; }
+
+.authorization_modal-footer:before, .authorization_modal-footer:after {
+    content: " ";
+    display: table; }
+.authorization_modal-footer:after {
+    clear: both; }
+.authorization_modal-footer .btn + .btn {
+    margin-left: 5px;
+    margin-bottom: 0; }
+.authorization_modal-footer .btn-group .btn + .btn {
+    margin-left: -1px; }
+.authorization_modal-footer .btn-block + .btn-block {
+    margin-left: 0; }
