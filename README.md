@@ -1,28 +1,5 @@
 # krakowskiTarg
-Wygenerowane przy pomocy jHipster.
-
-Co do zainstalowania:
-1. [Node.js](node.js) - pobrać ze strony (wersję stabilną i zainstalować); 
-2. postgresql - pobrać ze strony w wersji 9.6; przy instalacji nie podawać hasła dla konta postgres;
-3. pgadmin - narzędzie do obsługi bazy postgres - lepsze rozwiązanie niż linia komend;
-4. npm - node package manager - powinien być zainstalowany wraz z node-m;
-   działanie można sprawdzić wpisując w konsoli komendę `npm`
-6. gulp - komenda `npm install -g gulp` (w konsoli; flaga `-g` powoduje globalną instalację - komenda zadziałała gdziekolwiek w systemie);
-7. bower - komenda `npm install -g bower`
-8. maven - pobrać ze strony, wypakowane wrzucić na dysk C:/ i dodać ścieżkę do C:/maven/bin do zmiennych środowiskowych;
-9. java - zainstalować JDK w wersji 1.8;
-10. git - obowiązkowo (GitHUB nie jest konieczny)
-
-Aplikacja:
-* odpalenie (po zainstalowaniu wszystkiego) polega na puszczeniu komend
-
-`npm install` (w katalogu głównym - zainstaluje frontend)
-`mvnw` (w katalogu głównym);
-
-* aplikacja dostępna jest na heroku - https://krakowski-targ.herokuapp.com/
-    * heroku musi najpierw zainicjalizować zasoby - przez paredziesiąt sekund może nie działać (o ile ktoś nie odwiedził aplikacji w ciągu ostatniej pół godziny)
-
-Jeszcze bardziej dokładny opis poniżej.
+This application was generated using JHipster 4.0.6, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.0.6](https://jhipster.github.io/documentation-archive/v4.0.6).
 
 ## Development
 

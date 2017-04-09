@@ -139,7 +139,7 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
   border-radius: 0px;
   outline: 0;
   position: relative;
-  padding: 15px 0 20px 0; }
+  padding: 15px 90px 20px; }
 
 .authorization_modal.fade .authorization_modal-dialog {
   -webkit-transform: translate(0, -25%);
@@ -212,7 +212,6 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 .btn-authorization {
   display: inline-block;
   margin-bottom: 0;
-  float: right;
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
