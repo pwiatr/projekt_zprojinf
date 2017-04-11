@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # krakowskiTarg
 This application was generated using JHipster 4.0.6, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.0.6](https://jhipster.github.io/documentation-archive/v4.0.6).
 
@@ -110,3 +111,6 @@ To set up a CI environment, consult the [Setting up Continuous Integration][] pa
 [Protractor]: https://angular.github.io/protractor/
 [Leaflet]: http://leafletjs.com/
 [DefinitelyTyped]: http://definitelytyped.org/
+=======
+"# Konfiguracja" 
+>>>>>>> ec4cc65eea60c782bdefa4bbadfe29e4bb45f8da
