@@ -1,0 +1,25 @@
+{
+    "krakowskiTargApp": {
+        "address" : {
+            "home": {
+                "title": "Addresses",
+                "createLabel": "Dodaj Address",
+                "createOrEditLabel": "Dodaj lub edytuj: Address",
+                "search": "Search for Address"
+            },
+            "created": "A new Address is created with identifier {{ param }}",
+            "updated": "A Address is updated with identifier {{ param }}",
+            "deleted": "A Address is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Address {{ id }}?"
+            },
+            "detail": {
+                "title": "Address"
+            },
+            "city": "City",
+            "street": "Street",
+            "voivodeship": "Voivodeship",
+            "number": "Number"
+        }
+    }
+}

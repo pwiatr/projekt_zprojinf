@@ -24,5 +24,7 @@
 
     <cache alias="com.targ.krakowski.domain.Category" uses-template="simple"/>
 
+    <cache alias="com.targ.krakowski.domain.Address" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>
