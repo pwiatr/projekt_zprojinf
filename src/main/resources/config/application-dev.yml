@@ -15,7 +15,7 @@
 
 spring:
     profiles:
-        active: dev
+        active: dev0
         include: swagger
     devtools:
         restart:
@@ -28,7 +28,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:postgresql://localhost:5432/krakowskiTargTest
         username: krakowskiTargTest
-        password:
+        password: test
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL

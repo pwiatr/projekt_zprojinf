@@ -1,0 +1,22 @@
+{
+    "krakowskiTargApp": {
+        "category" : {
+            "home": {
+                "title": "Categories",
+                "createLabel": "Dodaj Category",
+                "createOrEditLabel": "Dodaj lub edytuj: Category",
+                "search": "Search for Category"
+            },
+            "created": "A new Category is created with identifier {{ param }}",
+            "updated": "A Category is updated with identifier {{ param }}",
+            "deleted": "A Category is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Category {{ id }}?"
+            },
+            "detail": {
+                "title": "Category"
+            },
+            "name": "Name"
+        }
+    }
+}
