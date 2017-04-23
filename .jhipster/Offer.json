@@ -1,0 +1,17 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "picture",
+            "otherEntityName": "picture",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "offer"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170423232958",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "offer",
+    "pagination": "no"
+}

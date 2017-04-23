@@ -1,0 +1,22 @@
+{
+    "krakowskiTargApp": {
+        "offer" : {
+            "home": {
+                "title": "Offers",
+                "createLabel": "Dodaj Offer",
+                "createOrEditLabel": "Dodaj lub edytuj: Offer",
+                "search": "Search for Offer"
+            },
+            "created": "A new Offer is created with identifier {{ param }}",
+            "updated": "A Offer is updated with identifier {{ param }}",
+            "deleted": "A Offer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Offer {{ id }}?"
+            },
+            "detail": {
+                "title": "Offer"
+            },
+            "picture": "Picture"
+        }
+    }
+}

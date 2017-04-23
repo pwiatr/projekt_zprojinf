@@ -1,0 +1,22 @@
+{
+    "krakowskiTargApp": {
+        "picture" : {
+            "home": {
+                "title": "Pictures",
+                "createLabel": "Dodaj Picture",
+                "createOrEditLabel": "Dodaj lub edytuj: Picture",
+                "search": "Search for Picture"
+            },
+            "created": "A new Picture is created with identifier {{ param }}",
+            "updated": "A Picture is updated with identifier {{ param }}",
+            "deleted": "A Picture is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Picture {{ id }}?"
+            },
+            "detail": {
+                "title": "Picture"
+            },
+            "offer": "Offer"
+        }
+    }
+}

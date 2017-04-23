@@ -10,6 +10,8 @@
                 "category": "Category",
                 "address": "Address",
                 "extendedUser": "Extended User",
+                "offer": "Offer",
+                "picture": "Picture",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

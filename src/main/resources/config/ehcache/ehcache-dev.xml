@@ -26,5 +26,11 @@
 
     <cache alias="com.targ.krakowski.domain.Address" uses-template="simple"/>
 
+    <cache alias="com.targ.krakowski.domain.Offer" uses-template="simple"/>
+
+    <cache alias="com.targ.krakowski.domain.Offer.pictures" uses-template="simple"/>
+
+    <cache alias="com.targ.krakowski.domain.Picture" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>
