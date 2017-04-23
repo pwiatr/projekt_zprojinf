@@ -59,5 +59,10 @@ describe('Controller Tests', function() {
             expect($scope.vm.error).toBe('ERROR');
             expect($scope.vm.success).toEqual(null);
         });
+		
+		it ('should set 2+2 =4', function() 
+		{
+			expect(2+2).toBe(4);
+		});
     });
 });
