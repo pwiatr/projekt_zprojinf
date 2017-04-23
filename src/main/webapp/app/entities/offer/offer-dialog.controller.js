@@ -12,6 +12,8 @@
 
         vm.offer = entity;
         vm.clear = clear;
+        vm.datePickerOpenStatus = {};
+        vm.openCalendar = openCalendar;
         vm.save = save;
         vm.pictures = Picture.query();
 
@@ -42,6 +44,10 @@
             vm.isSaving = false;
         }
 
+        vm.datePickerOpenStatus.date = false;
 
+        function openCalendar (date) {
+            vm.datePickerOpenStatus[date] = true;
+        }
     }
 })();

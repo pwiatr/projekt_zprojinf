@@ -22,6 +22,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,6 +39,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = KrakowskiTargApp.class)
 public class OfferResourceIntTest {
+
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
+
+    private static final Double DEFAULT_PRICE = 1D;
+    private static final Double UPDATED_PRICE = 2D;
+
+    private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
+
+    private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
+    private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
 
     @Autowired
     private OfferRepository offerRepository;
@@ -77,7 +91,11 @@ public class OfferResourceIntTest {
      * if they test an entity which requires the current entity.
      */
     public static Offer createEntity(EntityManager em) {
-        Offer offer = new Offer();
+        Offer offer = new Offer()
+                .name(DEFAULT_NAME)
+                .price(DEFAULT_PRICE)
+                .date(DEFAULT_DATE)
+                .description(DEFAULT_DESCRIPTION);
         return offer;
     }
 
@@ -103,6 +121,10 @@ public class OfferResourceIntTest {
         List<Offer> offerList = offerRepository.findAll();
         assertThat(offerList).hasSize(databaseSizeBeforeCreate + 1);
         Offer testOffer = offerList.get(offerList.size() - 1);
+        assertThat(testOffer.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testOffer.getPrice()).isEqualTo(DEFAULT_PRICE);
+        assertThat(testOffer.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testOffer.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
 
         // Validate the Offer in Elasticsearch
         Offer offerEs = offerSearchRepository.findOne(testOffer.getId());
@@ -131,6 +153,60 @@ public class OfferResourceIntTest {
 
     @Test
     @Transactional
+    public void checkNameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = offerRepository.findAll().size();
+        // set the field null
+        offer.setName(null);
+
+        // Create the Offer, which fails.
+
+        restOfferMockMvc.perform(post("/api/offers")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(offer)))
+            .andExpect(status().isBadRequest());
+
+        List<Offer> offerList = offerRepository.findAll();
+        assertThat(offerList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkPriceIsRequired() throws Exception {
+        int databaseSizeBeforeTest = offerRepository.findAll().size();
+        // set the field null
+        offer.setPrice(null);
+
+        // Create the Offer, which fails.
+
+        restOfferMockMvc.perform(post("/api/offers")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(offer)))
+            .andExpect(status().isBadRequest());
+
+        List<Offer> offerList = offerRepository.findAll();
+        assertThat(offerList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkDateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = offerRepository.findAll().size();
+        // set the field null
+        offer.setDate(null);
+
+        // Create the Offer, which fails.
+
+        restOfferMockMvc.perform(post("/api/offers")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(offer)))
+            .andExpect(status().isBadRequest());
+
+        List<Offer> offerList = offerRepository.findAll();
+        assertThat(offerList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllOffers() throws Exception {
         // Initialize the database
         offerRepository.saveAndFlush(offer);
@@ -139,7 +215,11 @@ public class OfferResourceIntTest {
         restOfferMockMvc.perform(get("/api/offers?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(offer.getId().intValue())));
+            .andExpect(jsonPath("$.[*].id").value(hasItem(offer.getId().intValue())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
     }
 
     @Test
@@ -152,7 +232,11 @@ public class OfferResourceIntTest {
         restOfferMockMvc.perform(get("/api/offers/{id}", offer.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.id").value(offer.getId().intValue()));
+            .andExpect(jsonPath("$.id").value(offer.getId().intValue()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
     }
 
     @Test
@@ -173,6 +257,11 @@ public class OfferResourceIntTest {
 
         // Update the offer
         Offer updatedOffer = offerRepository.findOne(offer.getId());
+        updatedOffer
+                .name(UPDATED_NAME)
+                .price(UPDATED_PRICE)
+                .date(UPDATED_DATE)
+                .description(UPDATED_DESCRIPTION);
 
         restOfferMockMvc.perform(put("/api/offers")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -183,6 +272,10 @@ public class OfferResourceIntTest {
         List<Offer> offerList = offerRepository.findAll();
         assertThat(offerList).hasSize(databaseSizeBeforeUpdate);
         Offer testOffer = offerList.get(offerList.size() - 1);
+        assertThat(testOffer.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testOffer.getPrice()).isEqualTo(UPDATED_PRICE);
+        assertThat(testOffer.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testOffer.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
 
         // Validate the Offer in Elasticsearch
         Offer offerEs = offerSearchRepository.findOne(testOffer.getId());
@@ -240,7 +333,11 @@ public class OfferResourceIntTest {
         restOfferMockMvc.perform(get("/api/_search/offers?query=id:" + offer.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(offer.getId().intValue())));
+            .andExpect(jsonPath("$.[*].id").value(hasItem(offer.getId().intValue())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
     }
 
     @Test

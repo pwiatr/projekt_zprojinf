@@ -6,7 +6,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -27,6 +29,23 @@ public class Offer implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
+    @Size(max = 80)
+    @Column(name = "name", length = 80, nullable = false)
+    private String name;
+
+    @NotNull
+    @Column(name = "price", nullable = false)
+    private Double price;
+
+    @NotNull
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
+
+    @Size(max = 1000)
+    @Column(name = "description", length = 1000)
+    private String description;
+
     @OneToMany(mappedBy = "offer")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -38,6 +57,58 @@ public class Offer implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Offer name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public Offer price(Double price) {
+        this.price = price;
+        return this;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public Offer date(LocalDate date) {
+        this.date = date;
+        return this;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Offer description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Set<Picture> getPictures() {
@@ -89,6 +160,10 @@ public class Offer implements Serializable {
     public String toString() {
         return "Offer{" +
             "id=" + id +
+            ", name='" + name + "'" +
+            ", price='" + price + "'" +
+            ", date='" + date + "'" +
+            ", description='" + description + "'" +
             '}';
     }
 }

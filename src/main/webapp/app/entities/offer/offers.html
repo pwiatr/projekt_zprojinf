@@ -36,12 +36,20 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="krakowskiTargApp.offer.name">Name</span></th>
+                    <th><span data-translate="krakowskiTargApp.offer.price">Price</span></th>
+                    <th><span data-translate="krakowskiTargApp.offer.date">Date</span></th>
+                    <th><span data-translate="krakowskiTargApp.offer.description">Description</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="offer in vm.offers track by offer.id">
                     <td><a ui-sref="offer-detail({id:offer.id})">{{offer.id}}</a></td>
+                    <td>{{offer.name}}</td>
+                    <td>{{offer.price}}</td>
+                        <td>{{offer.date | date:'mediumDate'}}</td>
+                    <td>{{offer.description}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

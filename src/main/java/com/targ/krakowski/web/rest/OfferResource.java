@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -50,7 +51,7 @@ public class OfferResource {
      */
     @PostMapping("/offers")
     @Timed
-    public ResponseEntity<Offer> createOffer(@RequestBody Offer offer) throws URISyntaxException {
+    public ResponseEntity<Offer> createOffer(@Valid @RequestBody Offer offer) throws URISyntaxException {
         log.debug("REST request to save Offer : {}", offer);
         if (offer.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new offer cannot already have an ID")).body(null);
@@ -73,7 +74,7 @@ public class OfferResource {
      */
     @PutMapping("/offers")
     @Timed
-    public ResponseEntity<Offer> updateOffer(@RequestBody Offer offer) throws URISyntaxException {
+    public ResponseEntity<Offer> updateOffer(@Valid @RequestBody Offer offer) throws URISyntaxException {
         log.debug("REST request to update Offer : {}", offer);
         if (offer.getId() == null) {
             return createOffer(offer);

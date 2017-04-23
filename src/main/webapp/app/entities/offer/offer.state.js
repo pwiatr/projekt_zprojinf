@@ -104,6 +104,10 @@
                     resolve: {
                         entity: function () {
                             return {
+                                name: null,
+                                price: null,
+                                date: null,
+                                description: null,
                                 id: null
                             };
                         }

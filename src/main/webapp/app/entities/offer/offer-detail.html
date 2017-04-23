@@ -4,6 +4,22 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
+        <dt><span data-translate="krakowskiTargApp.offer.name">Name</span></dt>
+        <dd>
+            <span>{{vm.offer.name}}</span>
+        </dd>
+        <dt><span data-translate="krakowskiTargApp.offer.price">Price</span></dt>
+        <dd>
+            <span>{{vm.offer.price}}</span>
+        </dd>
+        <dt><span data-translate="krakowskiTargApp.offer.date">Date</span></dt>
+        <dd>
+            <span>{{vm.offer.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="krakowskiTargApp.offer.description">Description</span></dt>
+        <dd>
+            <span>{{vm.offer.description}}</span>
+        </dd>
     </dl>
 
     <button type="submit"
