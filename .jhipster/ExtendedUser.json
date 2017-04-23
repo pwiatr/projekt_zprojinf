@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "extendedUser"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "telephone",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170423195812",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "extended_user",
+    "pagination": "pager"
+}
