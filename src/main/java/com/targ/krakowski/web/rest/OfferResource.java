@@ -10,6 +10,7 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -27,12 +28,13 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
  */
 @RestController
 @RequestMapping("/api")
+@PreAuthorize("permitAll")
 public class OfferResource {
 
     private final Logger log = LoggerFactory.getLogger(OfferResource.class);
 
     private static final String ENTITY_NAME = "offer";
-        
+
     private final OfferRepository offerRepository;
 
     private final OfferSearchRepository offerSearchRepository;
@@ -91,7 +93,8 @@ public class OfferResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of offers in body
      */
-    @GetMapping("/offers")
+    @GetMapping("/offersa")
+    @PreAuthorize("permitAll()")
     @Timed
     public List<Offer> getAllOffers() {
         log.debug("REST request to get all Offers");
@@ -132,7 +135,7 @@ public class OfferResource {
      * SEARCH  /_search/offers?query=:query : search for the offer corresponding
      * to the query.
      *
-     * @param query the query of the offer search 
+     * @param query the query of the offer search
      * @return the result of the search
      */
     @GetMapping("/_search/offers")

@@ -50,7 +50,7 @@
                     <td>{{offer.price}}</td>
                         <td>{{offer.date | date:'mediumDate'}}</td>
                     <td>{{offer.description}}</td>
-                    <td class="text-right">
+                    <td class="text-right" ng-if="vm.isAuthenticated()">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="offer-detail({id:offer.id})"

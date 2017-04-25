@@ -5,7 +5,7 @@
         .module('krakowskiTargApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Offer'];
 
     function HomeController ($scope, Principal, LoginService, $state) {
         var vm = this;
@@ -14,6 +14,8 @@
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
+        $state.go('offer');
+
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
