@@ -18,8 +18,8 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/public-offer/public-offers.html',
-                    controller: 'OfferController',
+                    templateUrl: 'app/entities/offer-public/public-offers.html',
+                    controller: 'PublicOfferController',
                     controllerAs: 'vm'
                 }
             },
@@ -32,7 +32,7 @@
             }
         })
         .state('public-offer-detail', {
-            parent: 'offer',
+            parent: 'public-offer',
             url: '/public-offers/{id}',
             data: {
                 authorities: ['ROLE_USER'],
@@ -40,8 +40,8 @@
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/public-offer/offer-detail.html',
-                    controller: 'OfferDetailController',
+                    templateUrl: 'app/entities/offer-public/offer-detail.html',
+                    controller: 'PublicOfferController',
                     controllerAs: 'vm'
                 }
             },

@@ -7,7 +7,7 @@
 
     PublicOfferController.$inject = ['PublicOffer', 'PublicOfferSearch'];
 
-    function PublicOfferController(PublicOffer, PublicOfferSearch, Principal) {
+    function PublicOfferController(PublicOffer, PublicOfferSearch) {
 
         var vm = this;
 
@@ -22,11 +22,7 @@
 
 
         function loadAll() {
-            Principal.identity().then(function() {
-                vm.isAuthenticated = Principal.isAuthenticated;
-            });
-
-            Offer.query(function(result) {
+            PublicOffer.query(function(result) {
                 vm.offers = result;
                 vm.searchQuery = null;
             });
@@ -36,7 +32,7 @@
             if (!vm.searchQuery) {
                 return vm.loadAll();
             }
-            OfferSearch.query({query: vm.searchQuery}, function(result) {
+            PublicOfferSearch.query({query: vm.searchQuery}, function(result) {
                 vm.offers = result;
                 vm.currentSearch = vm.searchQuery;
             });
