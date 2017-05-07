@@ -7,7 +7,7 @@
     Offer.$inject = ['$resource', 'DateUtils'];
 
     function Offer ($resource, DateUtils) {
-        var resourceUrl =  'offers/:id';
+        var resourceUrl =  'api/offers/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/offer',
             data: {
-                // authorities: ['ROLE_USER'],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'krakowskiTargApp.offer.home.title'
             },
             views: {

@@ -93,8 +93,7 @@ public class OfferResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of offers in body
      */
-    @GetMapping("/offersa")
-    @PreAuthorize("permitAll()")
+    @GetMapping("/offers")
     @Timed
     public List<Offer> getAllOffers() {
         log.debug("REST request to get all Offers");
