@@ -22,6 +22,16 @@
             Offer.query(function(result) {
                 vm.offers = result;
                 vm.searchQuery = null;
+                calculatePrices();
+            });
+        }
+
+        function calculatePrices() {
+            vm.offers.forEach(function(offer) {
+                var price = new PriceDecorator(offer.price);
+                price.decorate('handicapped');
+                offer.discounts = price.getDiscounts();
+                offer.price = price.getPrice();
             });
         }
 

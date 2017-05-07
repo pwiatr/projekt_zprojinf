@@ -49,7 +49,7 @@
                 <tr ng-repeat="offer in vm.offers track by offer.id">
                     <td><a ui-sref="offer-detail({id:offer.id})">{{offer.id}}</a></td>
                     <td>{{offer.name}}</td>
-                    <td>{{offer.price}}</td>
+                    <td>{{offer.price}} ({{offer.discounts}})</td>
                         <td>{{offer.date | date:'mediumDate'}}</td>
                     <td>{{offer.description}}</td>
                     <td>
