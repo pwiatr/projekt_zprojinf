@@ -17,7 +17,8 @@
                 "title": "Extended User"
             },
             "telephone": "Telephone",
-            "user": "User"
+            "user": "User",
+            "offer": "Offer"
         }
     }
 }

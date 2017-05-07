@@ -20,7 +20,8 @@
             "price": "Price",
             "date": "Date",
             "description": "Description",
-            "picture": "Picture"
+            "picture": "Picture",
+            "extendedUser": "Extended User"
         }
     }
 }

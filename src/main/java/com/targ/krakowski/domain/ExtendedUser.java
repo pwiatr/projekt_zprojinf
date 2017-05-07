@@ -1,11 +1,14 @@
 package com.targ.krakowski.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -30,6 +33,11 @@ public class ExtendedUser implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private User user;
+
+    @OneToMany(mappedBy = "extendedUser")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Offer> offers = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -63,6 +71,31 @@ public class ExtendedUser implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Offer> getOffers() {
+        return offers;
+    }
+
+    public ExtendedUser offers(Set<Offer> offers) {
+        this.offers = offers;
+        return this;
+    }
+
+    public ExtendedUser addOffer(Offer offer) {
+        this.offers.add(offer);
+        offer.setExtendedUser(this);
+        return this;
+    }
+
+    public ExtendedUser removeOffer(Offer offer) {
+        this.offers.remove(offer);
+        offer.setExtendedUser(null);
+        return this;
+    }
+
+    public void setOffers(Set<Offer> offers) {
+        this.offers = offers;
     }
 
     @Override

@@ -5,9 +5,9 @@
         .module('krakowskiTargApp')
         .controller('OfferDialogController', OfferDialogController);
 
-    OfferDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Offer', 'Picture'];
+    OfferDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Offer', 'Picture', 'ExtendedUser'];
 
-    function OfferDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Offer, Picture) {
+    function OfferDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Offer, Picture, ExtendedUser) {
         var vm = this;
 
         vm.offer = entity;
@@ -16,6 +16,7 @@
         vm.openCalendar = openCalendar;
         vm.save = save;
         vm.pictures = Picture.query();
+        vm.extendedusers = ExtendedUser.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

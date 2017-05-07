@@ -51,6 +51,9 @@ public class Offer implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Picture> pictures = new HashSet<>();
 
+    @ManyToOne
+    private ExtendedUser extendedUser;
+
     public Long getId() {
         return id;
     }
@@ -134,6 +137,19 @@ public class Offer implements Serializable {
 
     public void setPictures(Set<Picture> pictures) {
         this.pictures = pictures;
+    }
+
+    public ExtendedUser getExtendedUser() {
+        return extendedUser;
+    }
+
+    public Offer extendedUser(ExtendedUser extendedUser) {
+        this.extendedUser = extendedUser;
+        return this;
+    }
+
+    public void setExtendedUser(ExtendedUser extendedUser) {
+        this.extendedUser = extendedUser;
     }
 
     @Override

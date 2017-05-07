@@ -32,5 +32,7 @@
 
     <cache alias="com.targ.krakowski.domain.Picture" uses-template="simple"/>
 
+    <cache alias="com.targ.krakowski.domain.ExtendedUser.offers" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>

@@ -8,6 +8,12 @@
             "otherEntityField": "login",
             "ownerSide": true,
             "otherEntityRelationshipName": "extendedUser"
+        },
+        {
+            "relationshipName": "offer",
+            "otherEntityName": "offer",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "extendedUser"
         }
     ],
     "fields": [

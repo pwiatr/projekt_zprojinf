@@ -19,7 +19,7 @@
         loadAll();
 
         function loadAll() {
-            var res = Offer.query(function(result) {
+            Offer.query(function(result) {
                 vm.offers = result;
                 vm.searchQuery = null;
             });

@@ -5,15 +5,16 @@
         .module('krakowskiTargApp')
         .controller('ExtendedUserDialogController', ExtendedUserDialogController);
 
-    ExtendedUserDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'ExtendedUser', 'User'];
+    ExtendedUserDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'ExtendedUser', 'User', 'Offer'];
 
-    function ExtendedUserDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, ExtendedUser, User) {
+    function ExtendedUserDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, ExtendedUser, User, Offer) {
         var vm = this;
 
         vm.extendedUser = entity;
         vm.clear = clear;
         vm.save = save;
         vm.users = User.query();
+        vm.offers = Offer.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

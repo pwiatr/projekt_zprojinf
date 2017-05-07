@@ -5,9 +5,9 @@
         .module('krakowskiTargApp')
         .controller('ExtendedUserDetailController', ExtendedUserDetailController);
 
-    ExtendedUserDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'ExtendedUser', 'User'];
+    ExtendedUserDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'ExtendedUser', 'User', 'Offer'];
 
-    function ExtendedUserDetailController($scope, $rootScope, $stateParams, previousState, entity, ExtendedUser, User) {
+    function ExtendedUserDetailController($scope, $rootScope, $stateParams, previousState, entity, ExtendedUser, User, Offer) {
         var vm = this;
 
         vm.extendedUser = entity;

@@ -5,9 +5,9 @@
         .module('krakowskiTargApp')
         .controller('OfferDetailController', OfferDetailController);
 
-    OfferDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Offer', 'Picture'];
+    OfferDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Offer', 'Picture', 'ExtendedUser'];
 
-    function OfferDetailController($scope, $rootScope, $stateParams, previousState, entity, Offer, Picture) {
+    function OfferDetailController($scope, $rootScope, $stateParams, previousState, entity, Offer, Picture, ExtendedUser) {
         var vm = this;
 
         vm.offer = entity;

@@ -6,6 +6,12 @@
             "otherEntityName": "picture",
             "relationshipType": "one-to-many",
             "otherEntityRelationshipName": "offer"
+        },
+        {
+            "relationshipName": "extendedUser",
+            "otherEntityName": "extendedUser",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [
