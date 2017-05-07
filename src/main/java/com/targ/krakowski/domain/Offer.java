@@ -54,6 +54,10 @@ public class Offer implements Serializable {
     @ManyToOne
     private ExtendedUser extendedUser;
 
+    @ManyToOne(optional = false)
+    @NotNull
+    private Category category;
+
     public Long getId() {
         return id;
     }
@@ -150,6 +154,19 @@ public class Offer implements Serializable {
 
     public void setExtendedUser(ExtendedUser extendedUser) {
         this.extendedUser = extendedUser;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public Offer category(Category category) {
+        this.category = category;
+        return this;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override

@@ -1,11 +1,14 @@
 package com.targ.krakowski.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -27,6 +30,11 @@ public class Category implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(mappedBy = "category")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Offer> offers = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -46,6 +54,31 @@ public class Category implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Offer> getOffers() {
+        return offers;
+    }
+
+    public Category offers(Set<Offer> offers) {
+        this.offers = offers;
+        return this;
+    }
+
+    public Category addOffer(Offer offer) {
+        this.offers.add(offer);
+        offer.setCategory(this);
+        return this;
+    }
+
+    public Category removeOffer(Offer offer) {
+        this.offers.remove(offer);
+        offer.setCategory(null);
+        return this;
+    }
+
+    public void setOffers(Set<Offer> offers) {
+        this.offers = offers;
     }
 
     @Override

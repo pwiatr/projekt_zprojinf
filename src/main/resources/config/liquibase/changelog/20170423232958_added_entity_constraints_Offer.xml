@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="extended_user"/>
 
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="offer"
+                                 constraintName="fk_offer_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
     </changeSet>
 </databaseChangeLog>

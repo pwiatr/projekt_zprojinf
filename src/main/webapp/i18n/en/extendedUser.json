@@ -18,7 +18,8 @@
             },
             "telephone": "Telephone",
             "user": "User",
-            "offer": "Offer"
+            "offer": "Offer",
+            "creator" : "Creator"
         }
     }
 }

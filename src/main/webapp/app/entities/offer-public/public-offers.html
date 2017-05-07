@@ -40,7 +40,8 @@
                     <th><span data-translate="krakowskiTargApp.offer.price">Price</span></th>
                     <th><span data-translate="krakowskiTargApp.offer.date">Date</span></th>
                     <th><span data-translate="krakowskiTargApp.offer.description">Description</span></th>
-                    <th><span data-translate="krakowskiTargApp.offer.ext">Ext</span></th>
+                    <th><span data-translate="krakowskiTargApp.extendedUser.creator">Ext</span></th>
+                    <th><span data-translate="krakowskiTargApp.offer.category">Category</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -51,29 +52,8 @@
                     <td>{{offer.price}}</td>
                         <td>{{offer.date | date:'mediumDate'}}</td>
                     <td>{{offer.description}}</td>
-                    <td>{{offer.extendedUser.id}}</td>
-                    <!--<td class="text-right" ng-if="vm.isAuthenticated()">-->
-                        <!--<div class="btn-group flex-btn-group-container">-->
-                            <!--<button type="submit"-->
-                                    <!--ui-sref="offer-detail({id:offer.id})"-->
-                                    <!--class="btn btn-info btn-sm">-->
-                                <!--<span class="glyphicon glyphicon-eye-open"></span>-->
-                                <!--<span class="hidden-sm-down" data-translate="entity.action.view"></span>-->
-                            <!--</button>-->
-                            <!--<button type="submit"-->
-                                    <!--ui-sref="offer.edit({id:offer.id})"-->
-                                    <!--class="btn btn-primary btn-sm">-->
-                                <!--<span class="glyphicon glyphicon-pencil"></span>-->
-                                <!--<span class="hidden-sm-down" data-translate="entity.action.edit"></span>-->
-                            <!--</button>-->
-                            <!--<button type="submit"-->
-                                    <!--ui-sref="offer.delete({id:offer.id})"-->
-                                    <!--class="btn btn-danger btn-sm">-->
-                                <!--<span class="glyphicon glyphicon-remove-circle"></span>-->
-                                <!--<span class="hidden-sm-down" data-translate="entity.action.delete"></span>-->
-                            <!--</button>-->
-                        <!--</div>-->
-                    <!--</td>-->
+                    <td>{{offer.extendedUser.user.lastName}}</td>
+                    <td>{{offer.category.name}}</td>
                 </tr>
             </tbody>
         </table>

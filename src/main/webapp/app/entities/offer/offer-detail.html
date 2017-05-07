@@ -24,6 +24,10 @@
         <dd>
             <a ui-sref="extended-user-detail({id:vm.offer.extendedUser.id})">{{vm.offer.extendedUser.id}}</a>
         </dd>
+        <dt><span data-translate="krakowskiTargApp.offer.category">Category</span></dt>
+        <dd>
+            <a ui-sref="category-detail({id:vm.offer.category.id})">{{vm.offer.category.name}}</a>
+        </dd>
     </dl>
 
     <button type="submit"

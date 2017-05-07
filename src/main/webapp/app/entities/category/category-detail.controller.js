@@ -5,9 +5,9 @@
         .module('krakowskiTargApp')
         .controller('CategoryDetailController', CategoryDetailController);
 
-    CategoryDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Category'];
+    CategoryDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Category', 'Offer'];
 
-    function CategoryDetailController($scope, $rootScope, $stateParams, previousState, entity, Category) {
+    function CategoryDetailController($scope, $rootScope, $stateParams, previousState, entity, Category, Offer) {
         var vm = this;
 
         vm.category = entity;

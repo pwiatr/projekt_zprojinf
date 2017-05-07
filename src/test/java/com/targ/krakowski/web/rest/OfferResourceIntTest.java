@@ -3,6 +3,7 @@ package com.targ.krakowski.web.rest;
 import com.targ.krakowski.KrakowskiTargApp;
 
 import com.targ.krakowski.domain.Offer;
+import com.targ.krakowski.domain.Category;
 import com.targ.krakowski.repository.OfferRepository;
 import com.targ.krakowski.repository.search.OfferSearchRepository;
 import com.targ.krakowski.web.rest.errors.ExceptionTranslator;
@@ -96,6 +97,11 @@ public class OfferResourceIntTest {
                 .price(DEFAULT_PRICE)
                 .date(DEFAULT_DATE)
                 .description(DEFAULT_DESCRIPTION);
+        // Add required entity
+        Category category = CategoryResourceIntTest.createEntity(em);
+        em.persist(category);
+        em.flush();
+        offer.setCategory(category);
         return offer;
     }
 
