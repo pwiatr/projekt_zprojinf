@@ -22,7 +22,7 @@
                     controller: 'OfferController',
                     controllerAs: 'vm'
                 }
-            },
+            }, // test
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('offer');
