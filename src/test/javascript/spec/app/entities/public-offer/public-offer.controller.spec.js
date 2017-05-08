@@ -31,17 +31,10 @@ describe('Controller Tests', function() {
             };
         }));
 
+        describe('Offers availability', function() {
+            it('test',function() {
 
-        describe('Root Scope Listening', function() {
-            it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'krakowskiTargApp:offerUpdate';
-
-                createController();
-                expect($rootScope.$$listenerCount[eventType]).toEqual(1);
-
-                $scope.$destroy();
-                expect($rootScope.$$listenerCount[eventType]).toBeUndefined();
-            });
+            })
         });
     });
 
