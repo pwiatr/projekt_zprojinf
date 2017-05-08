@@ -38,6 +38,9 @@ describe('Controller Tests', function() {
 			it('Checks unavailiblity of wrongly defined offer', function() {
                 expect(MockOffer.name).toEqual(MockOffer.name+'test');
             });
+			it('Checks the date format', function() {
+                expect(MockOffer.date).toEqual('2016-10-25');
+            });
             it('test',function() {
 
             })
