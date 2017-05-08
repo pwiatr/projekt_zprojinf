@@ -32,6 +32,9 @@ describe('Controller Tests', function() {
         }));
 
         describe('Offers availability', function() {
+			it('Checks availiblity of well defined offer', function() {
+                expect(MockOffer.name).toEqual('test');
+            });
             it('test',function() {
 
             })
