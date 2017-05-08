@@ -35,10 +35,17 @@ describe('Controller Tests', function() {
 			it('Checks availiblity of well defined offer', function() {
                 expect(MockOffer.name).toEqual('test');
             });
+			it('Checks unavailiblity of wrongly defined offer', function() {
+                expect(MockOffer.name).toEqual(MockOffer.name+'test');
+            });
             it('test',function() {
 
             })
+			
+			
         });
+		
+	
     });
 
 });
