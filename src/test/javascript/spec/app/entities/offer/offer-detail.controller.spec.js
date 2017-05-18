@@ -42,6 +42,10 @@ describe('Controller Tests', function() {
                 $scope.$destroy();
                 expect($rootScope.$$listenerCount[eventType]).toBeUndefined();
             });
+			
+			it('Checks the date format', function() {
+                expect(MockOffer.date).toEqual('2016-10-25');
+            });
         });
     });
 

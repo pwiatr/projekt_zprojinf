@@ -38,6 +38,9 @@ describe('Controller Tests', function() {
                 $scope.$destroy();
                 expect($rootScope.$$listenerCount[eventType]).toBeUndefined();
             });
+			it('Checks is address is well defined', function() {
+                expect(MockAddress.name).toEqual('test');
+            });
         });
     });
 
