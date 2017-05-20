@@ -4,18 +4,19 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="offer.new" >
+                <button class="btn btn-primary" ui-sref="offer.new">
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span class="hidden-xs-down"  data-translate="krakowskiTargApp.offer.home.createLabel">
+                    <span class="hidden-xs-down" data-translate="krakowskiTargApp.offer.home.createLabel">
                         Create new Offer
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
-                    <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'krakowskiTargApp.offer.home.search' | translate }}">
-                        <span  class="input-group-btn width-min" >
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery"
+                               placeholder="{{ 'krakowskiTargApp.offer.home.search' | translate }}">
+                        <span class="input-group-btn width-min">
                             <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
@@ -31,31 +32,50 @@
         </div>
     </div>
     <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
-                <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="krakowskiTargApp.offer.name">Name</span></th>
-                    <th><span data-translate="krakowskiTargApp.offer.price">Price</span></th>
-                    <th><span data-translate="krakowskiTargApp.offer.date">Date</span></th>
-                    <th><span data-translate="krakowskiTargApp.offer.description">Description</span></th>
-                    <th><span data-translate="krakowskiTargApp.extendedUser.creator">Ext</span></th>
-                    <th><span data-translate="krakowskiTargApp.offer.category">Category</span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="offer in vm.offers track by offer.id">
-                    <td><a ui-sref="offer-detail({id:offer.id})">{{offer.id}}</a></td>
-                    <td>{{offer.name}}</td>
-                    <td>{{offer.price}}</td>
-                        <td>{{offer.date | date:'mediumDate'}}</td>
-                    <td>{{offer.description}}</td>
-                    <td>{{offer.extendedUser.user.lastName}}</td>
-                    <td>{{offer.category.name}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container">
+        <div class="offers-wrapper row">
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="offer in vm.offers track by offer.id">
+                <!--<nav  ui-sref="public-offer-detail({id:offer.id})" ng-click="vm.rotateOnClick($event)">-->
+                <nav  ng-click="vm.rotateOnClick($event, offer.id)">
+                    <img src="content/images/logo-jhipster.png"/>
+                    <section>
+                        <header>{{offer.name}}</header>
+                        <!--<p class="offers-category">{{offer.category.name}}</p>-->
+                        <div>
+                            <span class="offers-date">{{offer.date | date:'mediumDate'}}</span>
+                            <span class="offers-price">{{offer.price}}</span>
+                        </div>
+                    </section>
+                </nav>
+            </div>
+        </div>
     </div>
+
+    <!--<div class="table-responsive">-->
+    <!--<table class="jh-table table table-striped">-->
+    <!--<thead>-->
+    <!--<tr>-->
+    <!--<th><span data-translate="global.field.id">ID</span></th>-->
+    <!--<th><span data-translate="krakowskiTargApp.offer.name">Name</span></th>-->
+    <!--<th><span data-translate="krakowskiTargApp.offer.price">Price</span></th>-->
+    <!--<th><span data-translate="krakowskiTargApp.offer.date">Date</span></th>-->
+    <!--<th><span data-translate="krakowskiTargApp.offer.description">Description</span></th>-->
+    <!--<th><span data-translate="krakowskiTargApp.extendedUser.creator">Ext</span></th>-->
+    <!--<th><span data-translate="krakowskiTargApp.offer.category">Category</span></th>-->
+    <!--<th></th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr ng-repeat="offer in vm.offers track by offer.id">-->
+    <!--<td><a ui-sref="offer-detail({id:offer.id})">{{offer.id}}</a></td>-->
+    <!--<td>{{offer.name}}</td>-->
+    <!--<td>{{offer.price}}</td>-->
+    <!--<td>{{offer.date | date:'mediumDate'}}</td>-->
+    <!--<td>{{offer.description}}</td>-->
+    <!--<td>{{offer.extendedUser.user.lastName}}</td>-->
+    <!--<td>{{offer.category.name}}</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+    <!--</table>-->
+    <!--</div>-->
 </div>

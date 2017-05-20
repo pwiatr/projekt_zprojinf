@@ -98,6 +98,15 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
   -webkit-box-shadow: none;
   -o-box-shadow: none; }
 
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #7cdac2;
+  text-align: center; }
+
 .authorization_modal-header {
   padding: 10px 10px 0 0;
   border-bottom: none;
@@ -478,19 +487,54 @@ Logo styles
 
 .navbar {
   min-height: 50px;
-  border-bottom: 13px solid #6abaa6;
-  border-bottom-right-radius: 110px;
-  border-bottom-left-radius: 110px; }
+  border-bottom: 13px solid #6abaa6; }
 
 .navbar-default {
   padding: 10px 0;
   border: #000;
   background-color: #7cdac2; }
 
-@media (min-width: 768px) {
-  .navbar {
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px; } }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: transparent;
+  font-weight: bold; }
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #555;
+  background-color: transparent;
+  font-weight: bold; }
+
+.offers-wrapper {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+  .offers-wrapper nav {
+    margin: 0.5em;
+    display: block;
+    padding: 1em;
+    background-color: #eb7589;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s transform; }
+    .offers-wrapper nav:hover {
+      transform: scale(1.05); }
+    .offers-wrapper nav:focus {
+      outline: none; }
+  .offers-wrapper header {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 120%; }
+  .offers-wrapper img {
+    margin: 0 auto;
+    display: block;
+    max-height: 100px; }
+  .offers-wrapper .offers-date {
+    font-size: 75%; }
+  .offers-wrapper .offers-price {
+    float: right;
+    font-size: 125%; }
+
+.offer-clicked {
+  transform: rotate(10deg) !important; }
 
 /* ==========================================================================
 start Password strength bar style

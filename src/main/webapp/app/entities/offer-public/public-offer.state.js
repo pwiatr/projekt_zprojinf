@@ -34,15 +34,15 @@
         })
         .state('public-offer-detail', {
             parent: 'public-offer',
-            url: '/public-offers/{id}',
+            url: '/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                // authorities: ['ROLE_USER'],
                 pageTitle: 'krakowskiTargApp.offer.detail.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/offer-public/offer-detail.html',
-                    controller: 'PublicOfferController',
+                    templateUrl: 'app/entities/offer-public/public-offer-detail.html',
+                    controller: 'PublicOfferDetailController',
                     controllerAs: 'vm'
                 }
             },
@@ -51,8 +51,8 @@
                     $translatePartialLoader.addPart('offer');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'Offer', function($stateParams, Offer) {
-                    return Offer.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'PublicOffer', function($stateParams, PublicOffer) {
+                    return PublicOffer.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {

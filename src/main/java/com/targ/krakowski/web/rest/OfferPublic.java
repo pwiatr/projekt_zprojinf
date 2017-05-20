@@ -52,4 +52,19 @@ public class OfferPublic {
         List<Offer> offers = offerRepository.findAll();
         return offers;
     }
+
+    /**
+     * GET  /offers/:id : get the "id" offer.
+     *
+     * @param id the id of the offer to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the offer, or with status 404 (Not Found)
+     */
+    @GetMapping("/offers/{id}")
+    @PreAuthorize("permitAll()")
+    @Timed
+    public ResponseEntity<Offer> getOffer(@PathVariable Long id) {
+        log.debug("REST request to get Offer : {}", id);
+        Offer offer = offerRepository.findOne(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(offer));
+    }
 }
