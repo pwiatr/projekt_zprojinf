@@ -1,4 +1,4 @@
-package hello.storage;
+package com.targ.krakowski.storage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
