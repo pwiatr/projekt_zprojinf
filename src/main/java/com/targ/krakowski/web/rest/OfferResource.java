@@ -1,6 +1,8 @@
 package com.targ.krakowski.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.targ.krakowski.config.Constants;
+import com.targ.krakowski.domain.ExtendedUser;
 import com.targ.krakowski.domain.Offer;
 
 import com.targ.krakowski.repository.OfferRepository;
@@ -32,7 +34,7 @@ public class OfferResource {
     private final Logger log = LoggerFactory.getLogger(OfferResource.class);
 
     private static final String ENTITY_NAME = "offer";
-        
+
     private final OfferRepository offerRepository;
 
     private final OfferSearchRepository offerSearchRepository;
@@ -100,6 +102,22 @@ public class OfferResource {
     }
 
     /**
+     * GET  /offers/:login : get offers from user.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of offers in body
+     */
+    @GetMapping("/offers/user/{login:" + Constants.LOGIN_REGEX + "}")
+    @Timed
+    public List<Offer> getAllOffersFromUser(@PathVariable String login) {
+        log.debug("REST request to get all Offers from user");
+        List<Offer> allOffers = offerRepository.findAll();
+        List<Offer> userOffers = allOffers.stream()
+            .filter(o -> o.getExtendedUser().getUser().getLogin().equalsIgnoreCase(login))
+            .collect(Collectors.toList());
+        return userOffers;
+    }
+
+    /**
      * GET  /offers/:id : get the "id" offer.
      *
      * @param id the id of the offer to retrieve
@@ -112,6 +130,22 @@ public class OfferResource {
         Offer offer = offerRepository.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(offer));
     }
+//
+//    /**
+//     * GET  /offers/:login/:id : get the "id" offer from :login user
+//     *
+//     * @param id the id of the offer to retrieve
+//     * @return the ResponseEntity with status 200 (OK) and with body the offer, or with status 404 (Not Found)
+//     */
+//    @GetMapping("/offers/{login:"+ Constants.LOGIN_REGEX + "}/{id}")
+//    @Timed
+//    public ResponseEntity<Offer> getOfferFromUser(@PathVariable Long id) {
+//        log.debug("REST request to get Offer : {}", id);
+//        Offer offer = offerRepository.findOne(id);
+//        String loggedInUser = offer.getExtendedUser().getUser().getLogin();
+//        if()
+//        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(offer));
+//    }
 
     /**
      * DELETE  /offers/:id : delete the "id" offer.
@@ -132,7 +166,7 @@ public class OfferResource {
      * SEARCH  /_search/offers?query=:query : search for the offer corresponding
      * to the query.
      *
-     * @param query the query of the offer search 
+     * @param query the query of the offer search
      * @return the result of the search
      */
     @GetMapping("/_search/offers")

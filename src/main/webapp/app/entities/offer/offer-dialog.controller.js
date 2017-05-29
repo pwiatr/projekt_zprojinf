@@ -15,6 +15,7 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
+        vm.saveFile = saveFile;
         vm.pictures = Picture.query();
         vm.extendedusers = ExtendedUser.query();
         vm.categories = Category.query();
@@ -34,6 +35,10 @@
             } else {
                 Offer.save(vm.offer, onSaveSuccess, onSaveError);
             }
+        }
+
+        function saveFile() {
+            console.log("Trying to send");
         }
 
         function onSaveSuccess (result) {

@@ -2,6 +2,7 @@ package com.targ.krakowski;
 
 import com.targ.krakowski.config.ApplicationProperties;
 import com.targ.krakowski.config.DefaultProfileUtil;
+import com.targ.krakowski.storage.StorageProperties;
 import com.targ.krakowski.storage.StorageService;
 
 import io.github.jhipster.config.JHipsterConstants;
@@ -26,7 +27,7 @@ import java.util.Collection;
 
 @ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
-@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
+@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class, StorageProperties.class})
 public class KrakowskiTargApp {
 
     private static final Logger log = LoggerFactory.getLogger(KrakowskiTargApp.class);

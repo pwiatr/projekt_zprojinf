@@ -5,9 +5,9 @@
         .module('krakowskiTargApp')
         .controller('OfferController', OfferController);
 
-    OfferController.$inject = ['Offer', 'OfferSearch'];
+    OfferController.$inject = ['Offer', 'OfferSearch','Principal'];
 
-    function OfferController(Offer, OfferSearch) {
+    function OfferController(Offer, OfferSearch, Principal) {
 
         var vm = this;
 
@@ -16,13 +16,19 @@
         vm.search = search;
         vm.loadAll = loadAll;
 
+
+
         loadAll();
 
         function loadAll() {
-            Offer.query(function(result) {
-                vm.offers = result;
-                vm.searchQuery = null;
-                calculatePrices();
+            Principal.identity(true).then(function(account) {
+                vm.login = account.login;
+
+                Offer.queryByUser({id:vm.login}, function(result) {
+                    vm.offers = result;
+                    vm.searchQuery = null;
+                    calculatePrices();
+                });
             });
         }
 

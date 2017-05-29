@@ -151,6 +151,23 @@
         <span th:text="#{error.message}">Message:</span>&nbsp;<span th:text="${message}"></span><br/>
     </span>
 
+
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+
+
+
+    <div>
+        <ul>
+            <li th:each="file : ${files}">
+                <a th:href="${file}" th:text="${file}" />
+            </li>
+        </ul>
+    </div>
+
+
+
     <script th:inline="text">
         /*<![CDATA[*/
         var GOOG_FIXURL_LANG = '[[${#locale.language}]]', GOOG_FIXURL_SITE = location.host;

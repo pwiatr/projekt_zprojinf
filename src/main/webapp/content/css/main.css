@@ -522,7 +522,8 @@ Logo styles
   .offers-wrapper header {
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 120%; }
+    font-size: 120%;
+    white-space: nowrap; }
   .offers-wrapper img {
     margin: 0 auto;
     display: block;
