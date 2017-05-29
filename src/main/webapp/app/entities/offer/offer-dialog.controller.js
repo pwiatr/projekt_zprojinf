@@ -15,7 +15,7 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
-        vm.saveFile = saveFile;
+        // vm.saveFile = saveFile;
         vm.pictures = Picture.query();
         vm.extendedusers = ExtendedUser.query();
         vm.categories = Category.query();
@@ -37,9 +37,9 @@
             }
         }
 
-        function saveFile() {
-            console.log("Trying to send");
-        }
+        // function saveFile() {
+        //     console.log("Trying to send");
+        // }
 
         function onSaveSuccess (result) {
             $scope.$emit('krakowskiTargApp:offerUpdate', result);

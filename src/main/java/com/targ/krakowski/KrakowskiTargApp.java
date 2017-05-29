@@ -2,8 +2,8 @@ package com.targ.krakowski;
 
 import com.targ.krakowski.config.ApplicationProperties;
 import com.targ.krakowski.config.DefaultProfileUtil;
-import com.targ.krakowski.storage.StorageProperties;
-import com.targ.krakowski.storage.StorageService;
+//import com.targ.krakowski.storage.StorageProperties;
+//import com.targ.krakowski.storage.StorageService;
 
 import io.github.jhipster.config.JHipsterConstants;
 
@@ -27,7 +27,7 @@ import java.util.Collection;
 
 @ComponentScan
 @EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
-@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class, StorageProperties.class})
+@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
 public class KrakowskiTargApp {
 
     private static final Logger log = LoggerFactory.getLogger(KrakowskiTargApp.class);
@@ -58,13 +58,13 @@ public class KrakowskiTargApp {
         }
     }
 
-    @Bean
-    CommandLineRunner init(StorageService storageService) {
-        return (args) -> {
-            storageService.deleteAll();
-            storageService.init();
-        };
-    }
+//    @Bean
+//    CommandLineRunner init(StorageService storageService) {
+//        return (args) -> {
+//            storageService.deleteAll();
+//            storageService.init();
+//        };
+//    }
 
     /**
      * Main method, used to run the application.
